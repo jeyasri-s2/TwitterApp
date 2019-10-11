@@ -1,9 +1,8 @@
 from __future__ import unicode_literals
-from django.shortcuts import render
-
-# Create your views here.
-# -*- coding: utf-8 -*-
-#
+"""
+Author  : Jeyasri Subramanian
+Date: October 10, 2019
+"""
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ModelForm
