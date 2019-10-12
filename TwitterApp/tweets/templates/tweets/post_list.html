@@ -9,15 +9,13 @@
     <div class="container">
         <h1>Blog Post List!</h1>
         <ul>
-          {% for post in object_list %}
-          <li><p>Post ID: <a href="{% url "tweets:post_edit" post.id %}">{{ post.id }}</a></p>
+            <li>
           <p>Message: {{ post.message }}</p>
-            <a href="{% url "tweets:post_delete" post.id %}">Delete</a>
           </li>
-          {% endfor %}
+                    <a href="{% url "tweets:post_new" %}">New Blog post entry</a>
+
         </ul>
 
-        <a href="{% url "tweets:post_new" %}">New Blog post entry</a>
     </div>
   </body>
 </html>
