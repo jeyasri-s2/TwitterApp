@@ -12,7 +12,7 @@ app_name = 'tweets'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.post_list, name='post_list'),
-    url(r'^new$', views.post_create, name='post_new'),
+    url(r'^create$', views.post_create, name='post_new'),
     url(r'^edit/(?P<pk>\d+)$', views.post_update, name='post_edit'),
     url(r'^delete/(?P<pk>\d+)$', views.post_delete, name='post_delete'),
 ]
