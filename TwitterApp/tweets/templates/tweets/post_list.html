@@ -8,14 +8,17 @@
   <body>
     <div class="container">
         <h1>Tweets!</h1>
+        <a href="{% url "tweets:post_new" %}">New Tweet</a>
         <ul>
+            {% for tweet in tweets %}
             <li>
-
-          <p>Message: {{ posts.message }}</p>
-
-          </li>
-                    <a href="{% url "tweets:post_new" %}">New Blog post entry</a>
-
+              {{tweet.text}} - {{tweet.id}} - {{tweet.screenname}}
+              <form action="{% url 'tweets:post_delete' tweet.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+              </form>
+            </li>
+            {% endfor %}
         </ul>
 
     </div>
