@@ -29,11 +29,13 @@ def post_list(request, template_name='tweets/post_list.html'):
             #[{'code': 50, 'message': 'User not found.'}]
 
 
+
     posts = tweets
     print(json.dumps(posts))
     print("begin")
     print("print tweet: ",  posts[0]['Text'])
     print("end")
+
     data = {}
     data['object_list'] = posts
     return render(request, template_name, data)
@@ -72,8 +74,10 @@ def post_delete(request, pk, template_name='tweets/post_delete.html'):
     return render(request, template_name, {'object': post})
 
 def getAPIAuth():
+
     api = twitter.Api(consumer_key='pM8VhaCuNyMr7tuPiJGSACyr0',
                       consumer_secret='H4D3NtRpSEXmR7aseowaoFedMLt1I7BEyUI5M20q7rH2kqM5hk',
                       access_token_key='1180201895551328257-OhsK5pMcFNxiyJWUlyCwfp6ArHc5Lj',
                       access_token_secret='rN8S32KUULpewDWmxvkrefG3r6JyeKuyoNbxWXIIEgAyZ')
+
     return api
