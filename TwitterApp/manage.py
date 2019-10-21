@@ -3,8 +3,8 @@
 import os
 import sys
 """
-Author  : Jeyasri Subramanian
-Date: October 10, 2019
+# CMPE 272
+# Group: Blue Hats
 """
 
 def main():

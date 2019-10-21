@@ -9,18 +9,27 @@
     <div class="container">
         <h1>Tweets!</h1>
         <a href="{% url "tweets:post_new" %}">New Tweet</a>
-        <ul>
+        <table border="1">
+            <tr>
+                <th>Account Name</th>
+                <th>Tweet ID</th>
+                <th>Tweets</th>
+                <th>Action</th>
+            </tr>
             {% for tweet in tweets %}
-            <li>
-              {{tweet.text}} - {{tweet.id}} - {{tweet.screenname}}
-              <form action="{% url 'tweets:post_delete' tweet.id %}" method="post">
-                {% csrf_token %}
-                <input type="submit" value="Delete">
-              </form>
-            </li>
+            <tr>
+                <td>{{tweet.screenname}}</td>
+                <td>{{tweet.id}}</td>
+                <td>{{tweet.text}}</td>
+                <td>
+                    <form action="{% url 'tweets:post_delete' tweet.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
             {% endfor %}
-        </ul>
-
+        </table>
     </div>
   </body>
 </html>
