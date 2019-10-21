@@ -9,7 +9,6 @@ import json
 from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ModelForm
 from tweets.models import tweets
-from django.test import Client
 # Create your views here.
 
 def getAPIAuth():
