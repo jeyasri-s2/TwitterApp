@@ -9,6 +9,7 @@ import json
 from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ModelForm
 from tweets.models import tweets
+from django.test import Client
 # Create your views here.
 
 def getAPIAuth():
@@ -39,7 +40,7 @@ def post_list(request, template_name='tweets/post_list.html'):
     #print(posts)
 
     return render(request, template_name, {'tweets': posts})
-
+# Author: Manmeet and Subarna
 def post_create(request, template_name='tweets/post_form.html'):
     form = PostsForm(request.POST or None)
     #print(form)
@@ -58,7 +59,7 @@ def post_create(request, template_name='tweets/post_form.html'):
 
     #return redirect('tweets:post_list')
     return render(request, template_name, {'form': form, 'message': message})
-
+# Author: Jeyasri
 def post_update(request, pk, template_name='tweets/post_form.html'):
     post = get_object_or_404(tweets, pk=pk)
     form = PostsForm(request.POST or None, instance=post)
@@ -67,6 +68,7 @@ def post_update(request, pk, template_name='tweets/post_form.html'):
         return redirect('tweets:post_list')
     return render(request, template_name, {'form': form})
 
+# Author: Manmeet and Subarna
 def post_delete(request, id, template_name='tweets/post_delete.html'):
     tweet = api.GetStatus(str(id))
     if request.method=='POST':
