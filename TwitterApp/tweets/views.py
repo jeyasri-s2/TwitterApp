@@ -55,6 +55,8 @@ def post_create(request, template_name='tweets/post_form.html'):
             except twitter.error.TwitterError as e:
                 if(str(e.message).find('187')):
                     message = 'Duplicate tweet. Try new message !'
+                else:
+                    message = 'Account not available !'
 
     #return redirect('tweets:post_list')
     return render(request, template_name, {'form': form, 'message': message})
